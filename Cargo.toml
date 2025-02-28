@@ -14,7 +14,7 @@ members = [
 resolver = "2"
 
 [workspace.package]
-version = "0.25.1"
+version = "0.25.2"
 authors = [
   "Max Brunsfeld <maxbrunsfeld@gmail.com>",
   "Amaan Qureshi <amaanq12@gmail.com>",
@@ -150,7 +150,7 @@ walkdir = "2.5.0"
 wasmparser = "0.224.0"
 webbrowser = "1.0.3"
 
-tree-sitter = { version = "0.25.1", path = "./lib" }
+tree-sitter = { version = "0.25.2", path = "./lib" }
 tree-sitter-generate = { version = "0.25.1", path = "./cli/generate" }
 tree-sitter-loader = { version = "0.25.1", path = "./cli/loader" }
 tree-sitter-config = { version = "0.25.1", path = "./cli/config" }
