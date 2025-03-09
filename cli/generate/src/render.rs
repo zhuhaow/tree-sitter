@@ -26,6 +26,7 @@ const ABI_VERSION_WITH_RESERVED_WORDS: usize = 15;
 const BUILD_VERSION: &str = env!("CARGO_PKG_VERSION");
 const BUILD_SHA: Option<&'static str> = option_env!("BUILD_SHA");
 
+#[clippy::format_args]
 macro_rules! add {
     ($this: tt, $($arg: tt)*) => {{
         $this.buffer.write_fmt(format_args!($($arg)*)).unwrap();
@@ -40,6 +41,7 @@ macro_rules! add_whitespace {
     }};
 }
 
+#[clippy::format_args]
 macro_rules! add_line {
     ($this: tt, $($arg: tt)*) => {
         add_whitespace!($this);
@@ -1111,7 +1113,11 @@ impl Generator {
             return;
         }
 
-        add_line!(self, "const TSCharacterRange {}[] = {{", info.constant_name);
+        add_line!(
+            self,
+            "static const TSCharacterRange {}[] = {{",
+            info.constant_name
+        );
 
         indent!(self);
         for (ix, range) in characters.ranges().enumerate() {
